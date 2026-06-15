@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script>document.documentElement.classList.add('js');</script>
+<title>Contact — JOY Interior Design</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Urbanist:wght@300;400;500;600&family=Syne:wght@500;600;700;800&family=Noto+Sans+TC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<!-- ===== HEADER ===== -->
+<header class="site-header olive">
+  <div class="container nav">
+    <a href="index.html" class="logo"><img src="assets/logo-light.png" alt="JOY"></a>
+    <button class="hamburger" aria-label="menu">&#9776;</button>
+    <ul class="nav-links">
+      <li><a href="index.html" data-en="Home" data-zh="主頁">Home</a></li>
+      <li><a href="portfolio.html" data-en="Portfolio" data-zh="作品">Portfolio</a></li>
+      <li><a href="about.html" data-en="About us" data-zh="關於我們">About us</a></li>
+      <li><a href="contact.html" class="active" data-en="Contact" data-zh="聯絡我們">Contact</a></li>
+    </ul>
+    <div class="lang">
+      <button data-lang="zh">繁</button>
+      <button data-lang="en" class="active">EN</button>
+    </div>
+  </div>
+</header>
+
+<!-- ===== GET IN TOUCH (form only) ===== -->
+<section>
+  <div class="container">
+    <h2 class="gt-title reveal"><span data-en="Get In Touch with" data-zh="聯絡">Get In Touch with</span><img src="assets/logo-dark.png" alt="JOY"></h2>
+    <div class="contact-wrap reveal" style="margin-top:36px;">
+      <div class="contact-info">
+        <div class="info-block">
+          <h4 data-en="Company Address:" data-zh="公司地址：">Company Address:</h4>
+          <p data-en="G/F &amp; M/F," data-zh="地下及閣樓，">G/F &amp; M/F,</p>
+          <p data-en="Kai Kwong Commercial Building," data-zh="啟光商業大廈，">Kai Kwong Commercial Building,</p>
+          <p data-en="332 Lockhart Road," data-zh="駱克道332號，">332 Lockhart Road,</p>
+          <p data-en="Wanchai, Hong Kong" data-zh="香港灣仔">Wanchai, Hong Kong</p>
+        </div>
+        <div class="info-block">
+          <h4 data-en="Social Media:" data-zh="社交媒體：">Social Media:</h4>
+          <div class="info-socials">
+            <a href="#" target="_blank" aria-label="YouTube"><svg viewBox="0 0 24 24"><rect x="2.5" y="6" width="19" height="12" rx="3"/><path d="M10.5 9.2l4.2 2.8-4.2 2.8z" fill="var(--text)" stroke="none"/></svg></a>
+            <a href="#" target="_blank" aria-label="Facebook"><svg viewBox="0 0 24 24"><path d="M14.5 8.5h2V5.6h-2.3c-2 0-3.2 1.2-3.2 3.3v1.6H9v2.9h2v6.6h3v-6.6h2.2l.4-2.9h-2.6V9.2c0-.5.2-.7.7-.7z" fill="var(--text)" stroke="none"/></svg></a>
+            <a href="#" target="_blank" aria-label="Instagram"><svg viewBox="0 0 24 24"><rect x="3.5" y="3.5" width="17" height="17" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17" cy="7" r="1.1" fill="var(--text)" stroke="none"/></svg></a>
+          </div>
+        </div>
+        <div class="info-block">
+          <h4 data-en="General Enquiries" data-zh="一般查詢">General Enquiries</h4>
+          <p><span data-en="Email." data-zh="電郵：">Email.</span> <a href="mailto:Info@Joy.co">Info@Joy.co</a></p>
+          <p><span data-en="WhatsApp" data-zh="WhatsApp：">WhatsApp</span> <a href="https://wa.me/85290159333" target="_blank">+852 9015 9333</a></p>
+        </div>
+      </div>
+      <form class="contact-form" id="contactForm">
+        <div class="field"><label data-en="Name" data-zh="姓名">Name</label><input type="text" name="name" required></div>
+        <div class="field"><label data-en="Contact Number" data-zh="聯絡電話">Contact Number</label><input type="text" name="phone"></div>
+        <div class="field"><label data-en="Contact Email" data-zh="電郵">Contact Email</label><input type="email" name="email"></div>
+        <div class="field"><label data-en="Enquiries Detail" data-zh="查詢內容">Enquiries Detail</label><textarea name="detail"></textarea></div>
+        <button type="submit" class="btn" data-en="Submit" data-zh="提交">Submit</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer class="site-footer">
+  <div class="container">
+    <div class="logo"><img src="assets/logo-light.png" alt="JOY"></div>
+    <div class="footer-links">
+      <a href="about.html" data-en="About Us" data-zh="關於我們">About Us</a> ·
+      <a href="portfolio.html" data-en="Portfolio" data-zh="作品">Portfolio</a> ·
+      <a href="contact.html" data-en="Contact Us" data-zh="聯絡我們">Contact Us</a>
+    </div>
+    <div class="footer-bottom">
+      <span class="rule"></span>
+      <div class="socials">
+        <a href="#" target="_blank" aria-label="YouTube"><svg viewBox="0 0 24 24"><rect x="2.5" y="6" width="19" height="12" rx="3"/><path d="M10.5 9.2l4.2 2.8-4.2 2.8z" fill="#e9e4dc" stroke="none"/></svg></a>
+        <a href="#" target="_blank" aria-label="Facebook"><svg viewBox="0 0 24 24"><path d="M14.5 8.5h2V5.6h-2.3c-2 0-3.2 1.2-3.2 3.3v1.6H9v2.9h2v6.6h3v-6.6h2.2l.4-2.9h-2.6V9.2c0-.5.2-.7.7-.7z"/></svg></a>
+        <a href="#" target="_blank" aria-label="Instagram"><svg viewBox="0 0 24 24"><rect x="3.5" y="3.5" width="17" height="17" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17" cy="7" r="1.1" fill="#e9e4dc" stroke="none"/></svg></a>
+      </div>
+      <span class="rule"></span>
+    </div>
+  </div>
+</footer>
+
+<a class="wa-float" aria-label="WhatsApp"><img src="assets/wa-olive.png" alt="WhatsApp"></a>
+<script src="js/main.js"></script>
+</body>
+</html>

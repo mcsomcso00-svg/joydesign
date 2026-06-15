@@ -1,0 +1,9 @@
+# Source assets not used by the live site (kept locally only)
+/Image/
+/font/
+
+# OS / editor junk
+.DS_Store
+Thumbs.db
+*.log
+node_modules/
