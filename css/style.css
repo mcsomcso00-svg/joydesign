@@ -172,6 +172,13 @@ section{padding:64px 0;}
 .proj-card:hover .card-img .ph,.proj-card:hover .card-img img{transform:scale(.94);}
 .proj-card h3{font-size:1.4rem;font-weight:600;}
 
+/* ---- hover colour tint on project thumbnails (home + portfolio) ---- */
+.latest .zoom,.proj-card .card-img{position:relative;}
+.latest .zoom::after,.proj-card .card-img::after{
+  content:"";position:absolute;inset:0;background:var(--olive);
+  opacity:0;transition:opacity .4s var(--ease);pointer-events:none;z-index:1;}
+.latest a:hover .zoom::after,.proj-card:hover .card-img::after{opacity:.32;}
+
 /* latest projects (home) */
 .latest{display:grid;grid-template-columns:repeat(4,1fr);gap:22px;}
 .latest .ph{aspect-ratio:1/1;margin-bottom:10px;}
