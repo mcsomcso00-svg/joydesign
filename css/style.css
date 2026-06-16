@@ -157,7 +157,7 @@ section{padding:64px 0;}
 /* zoom-on-hover (moonway style) */
 .zoom{overflow:hidden;border-radius:2px;}
 .zoom .ph,.zoom img{transition:transform .5s var(--ease);}
-.zoom:hover .ph,.zoom:hover img{transform:scale(.94);}   /* hover 縮細 */
+.zoom:hover .ph,.zoom:hover img{transform:scale(1.08);}   /* hover zoom in（框固定，圖放大）*/
 
 /* portfolio parent grid (framed cards) */
 .proj-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:32px;}
@@ -169,7 +169,7 @@ section{padding:64px 0;}
 .proj-card .card-img{aspect-ratio:1/1;margin-bottom:18px;overflow:hidden;}
 .proj-card .card-img .ph,.proj-card .card-img img{width:100%;height:100%;
   object-fit:cover;object-position:left center;transition:transform .5s var(--ease);}
-.proj-card:hover .card-img .ph,.proj-card:hover .card-img img{transform:scale(.94);}
+.proj-card:hover .card-img .ph,.proj-card:hover .card-img img{transform:scale(1.08);}
 .proj-card h3{font-size:1.4rem;font-weight:600;}
 
 /* ---- hover colour effect — ONLY on the homepage "Discover MORE" tile (grey) ---- */
@@ -228,6 +228,7 @@ section{padding:64px 0;}
 .socials a{display:flex;align-items:center;justify-content:center;transition:transform .25s,opacity .25s;opacity:.85;}
 .socials a:hover{transform:translateY(-3px);opacity:1;}
 .socials svg{width:26px;height:26px;fill:none;stroke:#e9e4dc;stroke-width:1.6;}
+.socials img{width:34px;height:34px;display:block;}
 
 /* =========================================================
    WHATSAPP FLOAT BUTTON
