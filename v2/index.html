@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script>document.documentElement.classList.add('js');</script>
+<title>JOY Interior Design</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Urbanist:wght@300;400;500;600&family=Syne:wght@500;600;700;800&family=Noto+Sans+TC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<!-- ===== HEADER ===== -->
+<header class="site-header transparent">
+  <div class="container nav">
+    <a href="index.html" class="logo"><img src="assets/logo-light.png" alt="JOY"></a>
+    <button class="hamburger" aria-label="menu">&#9776;</button>
+    <ul class="nav-links">
+      <li><a href="index.html" class="active" data-en="Home" data-zh="主頁">Home</a></li>
+      <li><a href="portfolio.html" data-en="Portfolio" data-zh="作品">Portfolio</a></li>
+      <li><a href="about.html" data-en="About us" data-zh="關於我們">About us</a></li>
+      <li><a href="contact.html" data-en="Contact" data-zh="聯絡我們">Contact</a></li>
+      <li class="lang-item"><div class="lang"><button data-lang="zh">繁</button><button data-lang="en" class="active">EN</button></div></li>
+    </ul>
+  </div>
+</header>
+
+<!-- ===== HERO SLIDER (4 banners) ===== -->
+<section class="hero" style="padding:0;">
+  <div class="slide active"><img src="assets/hero1.jpg" alt="JOY interior"></div>
+  <div class="slide"><img src="assets/hero2.jpg" alt="JOY interior"></div>
+  <div class="slide"><img src="assets/hero3.jpg" alt="JOY interior"></div>
+  <div class="slide"><img src="assets/hero4.jpg" alt="JOY interior"></div>
+  <div class="hero-overlay">
+    <div class="container">
+      <h1 data-en="Designed for Clarity" data-zh="為純粹而設計">Designed for Clarity</h1>
+      <p data-en="High-end interior design · Hong Kong" data-zh="香港 · 高端室內設計">High-end interior design · Hong Kong</p>
+    </div>
+  </div>
+  <div class="hero-dots">
+    <button class="active"></button><button></button><button></button><button></button>
+  </div>
+</section>
+
+<!-- ===== OUR PHILOSOPHY + VIDEO ===== -->
+<section>
+  <div class="container split">
+    <div class="reveal">
+      <h2 class="eyebrow" data-en="OUR PHILOSOPHY" data-zh="我們的核心理念">OUR PHILOSOPHY</h2>
+      <p class="lead"
+         data-en="We redefine modern luxury through the lens of architectural discipline and chromatic depth. Best for clients looking for high-end, thought-led design."
+         data-zh="我們以建築學的嚴謹精神，配合色彩的深邃，重新詮釋現代奢華。專為尋求高端、兼具前瞻思維與精緻設計的客戶而生。">
+        We redefine modern luxury through the lens of architectural discipline and chromatic depth. Best for clients looking for high-end, thought-led design.</p>
+      <a href="about.html" class="btn" data-en="Learn More" data-zh="了解更多">Learn More</a>
+    </div>
+    <div class="reveal d1 ph video" data-label="Video" style="aspect-ratio:16/9;"></div>
+  </div>
+</section>
+
+<!-- ===== IMAGE + PROJECT PORTFOLIO ===== -->
+<section style="background:var(--cream-2);">
+  <div class="container split">
+    <div class="reveal zoom" style="aspect-ratio:16/9;"><img src="assets/mid-section.jpg" alt="JOY interior" class="cover"></div>
+    <div class="reveal d1" style="text-align:right;">
+      <h2 class="eyebrow" data-en="PROJECT PORTFOLIO" data-zh="精選作品">PROJECT PORTFOLIO</h2>
+      <p class="lead"
+         data-en="Our projects are more than just beautiful rooms; they are exercises in architectural discipline."
+         data-zh="我們的作品不僅僅是美輪美奐的空間，更是建築美學的實踐。">
+        Our projects are more than just beautiful rooms; they are exercises in architectural discipline.</p>
+      <a href="portfolio.html" class="btn" data-en="Learn More" data-zh="了解更多">Learn More</a>
+    </div>
+  </div>
+</section>
+
+<!-- ===== LATEST PROJECTS ===== -->
+<section>
+  <div class="container">
+    <h2 class="section-title reveal" data-en="LATEST PROJECTS" data-zh="近期作品">LATEST PROJECTS</h2>
+    <div class="latest">
+      <a href="project1.html"><figure class="reveal"><div class="zoom"><img src="assets/port1.jpg" alt="Mount Pavilia" class="cover"></div><figcaption data-en="Mount Pavilia" data-zh="傲瀧">Mount Pavilia</figcaption></figure></a>
+      <a href="project2.html"><figure class="reveal d1"><div class="zoom"><img src="assets/port2.jpg" alt="Harbour Green" class="cover"></div><figcaption data-en="Harbour Green" data-zh="君匯港">Harbour Green</figcaption></figure></a>
+      <a href="project3.html"><figure class="reveal d2"><div class="zoom"><img src="assets/port3.jpg" alt="Laichikok Bay Garden" class="cover"></div><figcaption data-en="Laichikok Bay Garden" data-zh="荔灣花園">Laichikok Bay Garden</figcaption></figure></a>
+      <a href="portfolio.html"><figure class="reveal d3 discover-more"><div class="zoom"><img src="assets/port4.jpg" alt="Discover more" class="cover"></div><figcaption data-en="Discover MORE" data-zh="探索更多">Discover MORE</figcaption></figure></a>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer class="site-footer">
+  <div class="container">
+    <div class="logo"><img src="assets/logo-light.png" alt="JOY"></div>
+    <div class="footer-links">
+      <a href="about.html" data-en="About Us" data-zh="關於我們">About Us</a> ·
+      <a href="portfolio.html" data-en="Portfolio" data-zh="作品">Portfolio</a> ·
+      <a href="contact.html" data-en="Contact Us" data-zh="聯絡我們">Contact Us</a>
+    </div>
+    <!-- TODO: replace # with real social URLs -->
+    <div class="footer-bottom">
+      <span class="rule"></span>
+      <div class="socials">
+        <a href="#" target="_blank" aria-label="YouTube"><img src="assets/social-yt.svg" alt="YouTube"></a>
+        <a href="#" target="_blank" aria-label="Facebook"><img src="assets/social-fb.svg" alt="Facebook"></a>
+        <a href="#" target="_blank" aria-label="Instagram"><img src="assets/social-ig.svg" alt="Instagram"></a>
+      </div>
+      <span class="rule"></span>
+    </div>
+  </div>
+</footer>
+
+<!-- ===== WHATSAPP FLOAT ===== -->
+<a class="wa-float" aria-label="WhatsApp"><img src="assets/wa-olive.png" alt="WhatsApp"></a>
+
+<script src="js/main.js"></script>
+</body>
+</html>

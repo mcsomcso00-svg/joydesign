@@ -1,0 +1,312 @@
+/* =========================================================
+   JOY Interior Design — Shared Stylesheet (Draft)
+   Palette / fonts taken from Adobe XD template.
+   Image areas use .ph placeholders — swap with <img> later.
+   ========================================================= */
+
+:root{
+  --taupe:#a48174;      /* header (Portfolio / Project) */
+  --olive:#7a7b62;      /* header + section bars (Home / About / Contact) */
+  --cream:#eae5dc;      /* page / section background */
+  --cream-2:#eae5dc;    /* alternate section bg (unified) */
+  --dark:#3c3634;       /* footer (all pages) */
+  --text:#3a352f;       /* main text */
+  --muted:#8f877c;      /* sub text */
+  --clay:#b07f68;       /* buttons (Learn More / Submit) */
+  --clay-dark:#9a6a55;  /* button hover */
+  --line:#c7bdb0;       /* borders */
+  --white:#f6f3ee;
+  --max:1920px;
+  --ease:cubic-bezier(.22,.61,.36,1);
+  --font-display:'Syne','Noto Sans TC',sans-serif; /* big hero titles */
+  --font-head:'Outfit','Noto Sans TC',sans-serif;  /* section titles */
+  --font-body:'Urbanist','Noto Sans TC',sans-serif;/* body text */
+}
+
+*{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{
+  font-family:var(--font-body);
+  font-weight:300;
+  color:var(--text);
+  background:var(--cream);
+  line-height:1.7;
+  -webkit-font-smoothing:antialiased;
+}
+img{max-width:100%;display:block;}
+a{color:inherit;text-decoration:none;}
+.container{max-width:var(--max);margin:0 auto;padding:0 24px;}
+
+/* ---------- Headings ---------- */
+h1,h2,h3{font-family:var(--font-head);font-weight:600;letter-spacing:.02em;}
+.section-title{
+  font-family:var(--font-head);
+  text-align:center;font-size:1.6rem;font-weight:600;
+  letter-spacing:.18em;text-transform:uppercase;margin-bottom:18px;
+}
+.display{font-family:var(--font-display);font-size:2.6rem;font-weight:700;letter-spacing:.02em;}
+/* "Get In Touch with [JOY]" title — logo recoloured via CSS mask */
+.gt-title{font-family:var(--font-head);text-align:center;font-size:1.7rem;font-weight:600;
+  letter-spacing:.05em;display:flex;align-items:center;justify-content:center;gap:18px;flex-wrap:wrap;}
+/* logo 5x larger (36px -> 180px); negative margins absorb the extra height
+   so the title row's layout stays constant. The PNG has transparent padding,
+   so the visible glyph grows without overlapping the text. */
+.gt-title img{height:180px;width:auto;margin:-72px 0;}
+.subtle{color:var(--muted);}
+
+/* =========================================================
+   HEADER / NAV
+   ========================================================= */
+.site-header{
+  position:sticky;top:0;z-index:60;
+  background:var(--taupe);
+  transition:background .3s;
+}
+.site-header.olive{background:var(--olive);}
+/* homepage: transparent header floating over the hero */
+.site-header.transparent{position:absolute;top:0;left:0;right:0;z-index:60;background:transparent;}
+.nav{
+  display:flex;align-items:center;justify-content:space-between;
+  height:76px;
+}
+.logo{display:flex;align-items:center;}
+/* logo enlarged; overflows the 76px bar but keeps the bar height unchanged */
+.logo img{height:192px;width:auto;position:relative;z-index:1;}
+.nav-links{display:flex;align-items:center;gap:38px;list-style:none;margin-left:auto;} /* push menu right */
+.nav-links a{
+  color:#fff;font-size:.98rem;letter-spacing:.06em;
+  padding-bottom:4px;position:relative;opacity:1;transition:opacity .25s;
+}
+.nav-links a:hover{opacity:.7;}                    /* same hover as 繁/EN */
+.nav-links a.active{border-bottom:1px solid #fff;}
+.lang{display:flex;gap:16px;align-items:center;}
+.lang button{
+  background:none;border:none;color:#fff;cursor:pointer;
+  font-family:inherit;font-size:.95rem;opacity:1;transition:opacity .2s;
+}
+.lang button:hover{opacity:.75;}
+.lang button.active{font-weight:700;}
+.hamburger{display:none;background:none;border:none;cursor:pointer;
+  font-size:1.6rem;color:#fff;}
+
+/* =========================================================
+   BUTTONS
+   ========================================================= */
+.btn{
+  display:inline-block;background:var(--clay);color:#fff;
+  padding:9px 22px;border:none;border-radius:4px;cursor:pointer;
+  font-family:inherit;font-size:.95rem;letter-spacing:.04em;
+  transition:background .25s,transform .25s;
+}
+.btn:hover{background:var(--clay-dark);transform:translateY(-2px);} /* hover 變色 */
+
+/* =========================================================
+   PLACEHOLDER IMAGE BOXES  (swap with <img> later)
+   ========================================================= */
+.ph{
+  background:linear-gradient(135deg,#d8d0c4,#c3b8a8);
+  display:flex;align-items:center;justify-content:center;
+  color:#fff8;font-size:.85rem;letter-spacing:.1em;text-transform:uppercase;
+  position:relative;overflow:hidden;
+}
+.ph::after{content:attr(data-label);}
+.ph.video{background:#0d0d0d;color:#bbb;}
+/* real images that fill their box */
+.cover{width:100%;height:100%;object-fit:cover;display:block;}
+.hero .slide img{width:100%;height:100%;object-fit:cover;}
+
+/* =========================================================
+   HERO  (Home slider + page heroes)
+   ========================================================= */
+.hero{position:relative;height:60vh;min-height:420px;overflow:hidden;}
+.hero .slide{
+  position:absolute;inset:0;opacity:0;transition:opacity 1s var(--ease);
+}
+.hero .slide.active{opacity:1;}
+.hero .ph{height:100%;}
+.hero-dots{
+  position:absolute;left:32px;bottom:26px;display:flex;gap:12px;z-index:5;
+}
+.hero-dots button{
+  width:12px;height:12px;border-radius:50%;border:1.5px solid #fff;
+  background:transparent;cursor:pointer;padding:0;transition:background .25s;
+}
+.hero-dots button.active{background:#fff;}
+/* fixed headline + subtitle overlay, anchored bottom-left, aligned to the container */
+.hero-overlay{position:absolute;inset:0;z-index:4;display:flex;flex-direction:column;
+  justify-content:flex-end;text-align:left;color:#fff;pointer-events:none;padding-bottom:64px;}
+.hero-overlay .container{width:100%;}
+.hero-overlay h1{font-family:var(--font-display);font-size:3rem;font-weight:700;letter-spacing:.04em;
+  text-shadow:0 2px 22px rgba(0,0,0,.4);}
+.hero-overlay p{font-size:1.15rem;margin-top:12px;letter-spacing:.08em;text-shadow:0 2px 14px rgba(0,0,0,.4);}
+
+/* page hero (Portfolio child / About) */
+.page-hero{height:46vh;min-height:340px;}
+.page-hero-title{
+  text-align:center;color:#fff;display:flex;align-items:center;
+  justify-content:center;height:100%;
+}
+
+/* =========================================================
+   SECTIONS / LAYOUT
+   ========================================================= */
+section{padding:64px 0;}
+.split{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center;}
+.split .ph{aspect-ratio:16/10;width:100%;border-radius:2px;}
+.eyebrow{font-size:1.15rem;font-weight:600;letter-spacing:.16em;
+  text-transform:uppercase;margin-bottom:16px;}
+.lead{color:var(--muted);margin-bottom:22px;}
+
+/* project detail gallery grid (6) */
+.gallery{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;}
+.gallery .zoom{border-radius:2px;}
+.gallery .zoom .ph,.gallery .zoom img{aspect-ratio:4/3;width:100%;height:auto;
+  object-fit:cover;cursor:pointer;display:block;}
+
+/* zoom-on-hover (moonway style) */
+.zoom{overflow:hidden;border-radius:2px;}
+.zoom .ph,.zoom img{transition:transform .5s var(--ease);}
+.zoom:hover .ph,.zoom:hover img{transform:scale(1.08);}   /* hover zoom in（框固定，圖放大）*/
+
+/* portfolio parent grid (framed cards) */
+.proj-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:32px;}
+.proj-card{
+  border:1px solid var(--line);padding:26px;text-align:center;
+  transition:border-color .3s,background .3s;cursor:pointer;
+}
+/* (no hover colour change on project cards) */
+.proj-card .card-img{aspect-ratio:1/1;margin-bottom:18px;overflow:hidden;}
+.proj-card .card-img .ph,.proj-card .card-img img{width:100%;height:100%;
+  object-fit:cover;object-position:left center;transition:transform .5s var(--ease);}
+.proj-card:hover .card-img .ph,.proj-card:hover .card-img img{transform:scale(1.08);}
+.proj-card h3{font-size:1.4rem;font-weight:600;}
+
+/* ---- hover colour effect — ONLY on the homepage "Discover MORE" tile (grey) ---- */
+.discover-more .zoom{position:relative;}
+.discover-more .zoom::after{
+  content:"";position:absolute;inset:0;background:#5d5d57;
+  opacity:0;transition:opacity .4s var(--ease);pointer-events:none;z-index:1;}
+.discover-more:hover .zoom::after{opacity:.45;}
+
+/* latest projects (home) */
+.latest{display:grid;grid-template-columns:repeat(4,1fr);gap:22px;}
+.latest .ph{aspect-ratio:1/1;margin-bottom:10px;}
+.latest .zoom{aspect-ratio:1/1;margin-bottom:10px;}
+.latest .zoom img{width:100%;height:100%;object-fit:cover;object-position:left center;}
+.latest figcaption{font-weight:600;text-align:center;}
+
+/* =========================================================
+   CONTACT FORM
+   ========================================================= */
+.contact-wrap{display:grid;grid-template-columns:.8fr 1.2fr;gap:48px;}
+.contact-info p{margin-bottom:6px;}
+.contact-info .info-block{margin-bottom:32px;}
+.contact-info h4{font-family:var(--font-head);font-size:.95rem;letter-spacing:.12em;
+  text-transform:uppercase;margin-bottom:10px;font-weight:600;}
+.contact-info a{border-bottom:1px solid transparent;transition:border-color .2s;}
+.contact-info a:hover{border-color:var(--text);}
+.info-socials{display:flex;gap:18px;margin-top:4px;}
+.info-socials a{transition:transform .2s;}
+.info-socials a:hover{transform:translateY(-2px);}
+.info-socials svg{width:22px;height:22px;fill:none;stroke:var(--text);stroke-width:1.5;}
+.contact-form{border:1px solid var(--line);padding:34px;}
+.field{margin-bottom:20px;}
+.field label{display:block;font-weight:600;margin-bottom:8px;
+  text-transform:uppercase;letter-spacing:.08em;font-size:.92rem;}
+.field input,.field textarea{
+  width:100%;border:none;background:#fff;padding:12px 14px;
+  font-family:inherit;font-size:1rem;border-radius:2px;
+}
+.field textarea{min-height:150px;resize:vertical;}
+.contact-form .btn{margin-top:6px;}
+
+/* =========================================================
+   FOOTER
+   ========================================================= */
+.site-footer{background:var(--dark);color:#e9e4dc;text-align:center;padding:46px 0 40px;}
+.site-footer .logo{justify-content:center;margin-left:0;margin-bottom:20px;}
+/* footer logo (5x); negative margins keep the footer layout constant */
+.site-footer .logo img{height:370px;margin:-148px 0;}
+.footer-links{display:flex;gap:14px;justify-content:center;color:#cfc7bc;letter-spacing:.05em;margin-bottom:26px;}
+.footer-links a{transition:color .25s;}
+.footer-links a:hover{color:#fff;}
+/* bottom row: line —— icons —— line */
+.footer-bottom{display:flex;align-items:center;gap:30px;}
+.footer-bottom .rule{flex:1;height:1px;background:rgba(255,255,255,.4);}
+.socials{display:flex;gap:34px;align-items:center;}
+.socials a{display:flex;align-items:center;justify-content:center;transition:transform .25s,opacity .25s;opacity:.85;}
+.socials a:hover{transform:translateY(-3px);opacity:1;}
+.socials svg{width:26px;height:26px;fill:none;stroke:#e9e4dc;stroke-width:1.6;}
+.socials img{width:34px;height:34px;display:block;}
+
+/* =========================================================
+   WHATSAPP FLOAT BUTTON
+   ========================================================= */
+.wa-float{
+  position:fixed;right:22px;bottom:22px;z-index:80;
+  width:60px;height:60px;display:block;
+  transition:transform .25s;
+  filter:drop-shadow(0 5px 12px rgba(0,0,0,.28));
+}
+.wa-float:hover{transform:scale(1.1);}
+.wa-float img{width:100%;height:100%;}
+
+/* =========================================================
+   LIGHTBOX
+   ========================================================= */
+.lightbox{
+  position:fixed;inset:0;z-index:100;background:rgba(20,18,16,.5);
+  display:none;align-items:center;justify-content:center;padding:5vw;
+}
+.lightbox.open{display:flex;}
+.lightbox .ph{max-width:90vw;max-height:88vh;width:auto;aspect-ratio:4/3;border-radius:3px;}
+.lightbox img{max-width:90vw;max-height:88vh;width:auto;height:auto;
+  object-fit:contain;border-radius:3px;}
+.lightbox .close{position:absolute;top:24px;right:32px;color:#fff;
+  font-size:2.2rem;cursor:pointer;background:none;border:none;line-height:1;z-index:2;}
+/* prev / next arrows */
+.lightbox .lb-nav{position:absolute;top:50%;transform:translateY(-50%);
+  background:rgba(0,0,0,.35);color:#fff;border:none;cursor:pointer;
+  width:52px;height:52px;border-radius:50%;font-size:1.8rem;line-height:1;
+  display:flex;align-items:center;justify-content:center;transition:background .2s;z-index:2;}
+.lightbox .lb-nav:hover{background:rgba(0,0,0,.6);}
+.lightbox .lb-prev{left:24px;}
+.lightbox .lb-next{right:24px;}
+
+/* =========================================================
+   FADE-IN ON SCROLL (mae-design style)
+   ========================================================= */
+/* Hidden ONLY when JS is active (html.js). Without JS the content shows. */
+html.js .reveal{opacity:0;transform:translateY(30px);
+  transition:opacity .9s var(--ease),transform .9s var(--ease);}
+html.js .reveal.in{opacity:1;transform:none;}
+.reveal.d1{transition-delay:.15s;}
+.reveal.d2{transition-delay:.3s;}
+.reveal.d3{transition-delay:.45s;}
+
+/* =========================================================
+   RESPONSIVE
+   ========================================================= */
+@media(max-width:900px){
+  .nav-links{
+    position:absolute;top:76px;left:0;right:0;background:var(--taupe);
+    flex-direction:column;gap:0;padding:10px 0;display:none;
+  }
+  .site-header.olive .nav-links,
+  .site-header.transparent .nav-links{background:var(--olive);}
+  .nav-links.open{display:flex;}
+  .nav-links li{width:100%;text-align:center;padding:12px 0;}
+  /* language switcher sits under the menu items on mobile */
+  .nav-links .lang{justify-content:center;margin:6px 0 4px;}
+  .hamburger{display:block;}
+  .split,.contact-wrap{grid-template-columns:1fr;gap:28px;}
+  .gallery,.proj-grid{grid-template-columns:repeat(2,1fr);}
+  .latest{grid-template-columns:repeat(2,1fr);}
+  .display{font-size:1.8rem;}
+}
+@media(max-width:560px){
+  .gallery,.proj-grid,.latest{grid-template-columns:1fr;}
+  .section-title{font-size:1.3rem;}
+  section{padding:44px 0;}
+  .hero{height:48vh;min-height:320px;}
+}

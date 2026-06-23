@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script>document.documentElement.classList.add('js');</script>
+<title>Portfolio — JOY Interior Design</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Urbanist:wght@300;400;500;600&family=Syne:wght@500;600;700;800&family=Noto+Sans+TC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<!-- ===== HEADER ===== -->
+<header class="site-header olive">
+  <div class="container nav">
+    <a href="index.html" class="logo"><img src="assets/logo-light.png" alt="JOY"></a>
+    <button class="hamburger" aria-label="menu">&#9776;</button>
+    <ul class="nav-links">
+      <li><a href="index.html" data-en="Home" data-zh="主頁">Home</a></li>
+      <li><a href="portfolio.html" class="active" data-en="Portfolio" data-zh="作品">Portfolio</a></li>
+      <li><a href="about.html" data-en="About us" data-zh="關於我們">About us</a></li>
+      <li><a href="contact.html" data-en="Contact" data-zh="聯絡我們">Contact</a></li>
+      <li class="lang-item"><div class="lang"><button data-lang="zh">繁</button><button data-lang="en" class="active">EN</button></div></li>
+    </ul>
+  </div>
+</header>
+
+<!-- ===== PORTFOLIO GRID ===== -->
+<section>
+  <div class="container">
+    <h2 class="section-title reveal" data-en="PROJECT PORTFOLIO" data-zh="精選作品">PROJECT PORTFOLIO</h2>
+    <p class="reveal" style="text-align:center;color:var(--muted);max-width:680px;margin:0 auto 48px;">
+      <span data-en="Our projects are more than just beautiful rooms;" data-zh="我們的作品不僅僅是美輪美奐的空間，">Our projects are more than just beautiful rooms;</span><br>
+      <span data-en="they are exercises in architectural discipline." data-zh="更是建築美學的實踐。">they are exercises in architectural discipline.</span></p>
+    <div class="proj-grid">
+      <a href="project1.html" class="proj-card reveal"><div class="card-img"><img src="assets/port1.jpg" alt="Mount Pavilia" class="cover"></div><h3 data-en="Mount Pavilia" data-zh="傲瀧">Mount Pavilia</h3></a>
+      <a href="project2.html" class="proj-card reveal d1"><div class="card-img"><img src="assets/port2.jpg" alt="Harbour Green" class="cover"></div><h3 data-en="Harbour Green" data-zh="君匯港">Harbour Green</h3></a>
+      <a href="project3.html" class="proj-card reveal d2"><div class="card-img"><img src="assets/port3.jpg" alt="Laichikok Bay Garden" class="cover"></div><h3 data-en="Laichikok Bay Garden" data-zh="荔灣花園">Laichikok Bay Garden</h3></a>
+      <a href="project4.html" class="proj-card reveal"><div class="card-img"><img src="assets/port4.jpg" alt="Grand Promenade" class="cover"></div><h3 data-en="Grand Promenade" data-zh="嘉享灣">Grand Promenade</h3></a>
+      <a href="project5.html" class="proj-card reveal d1"><div class="card-img"><img src="assets/port5.jpg" alt="Lohas Park" class="cover"></div><h3 data-en="Lohas Park" data-zh="日出康城">Lohas Park</h3></a>
+      <a href="project6.html" class="proj-card reveal d2"><div class="card-img"><img src="assets/port6.jpg" alt="Peace Tower" class="cover"></div><h3 data-en="Peace Tower" data-zh="寶時大廈">Peace Tower</h3></a>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer class="site-footer">
+  <div class="container">
+    <div class="logo"><img src="assets/logo-light.png" alt="JOY"></div>
+    <div class="footer-links">
+      <a href="about.html" data-en="About Us" data-zh="關於我們">About Us</a> ·
+      <a href="portfolio.html" data-en="Portfolio" data-zh="作品">Portfolio</a> ·
+      <a href="contact.html" data-en="Contact Us" data-zh="聯絡我們">Contact Us</a>
+    </div>
+    <div class="footer-bottom">
+      <span class="rule"></span>
+      <div class="socials">
+        <a href="#" target="_blank" aria-label="YouTube"><img src="assets/social-yt.svg" alt="YouTube"></a>
+        <a href="#" target="_blank" aria-label="Facebook"><img src="assets/social-fb.svg" alt="Facebook"></a>
+        <a href="#" target="_blank" aria-label="Instagram"><img src="assets/social-ig.svg" alt="Instagram"></a>
+      </div>
+      <span class="rule"></span>
+    </div>
+  </div>
+</footer>
+
+<a class="wa-float" aria-label="WhatsApp"><img src="assets/wa-olive.png" alt="WhatsApp"></a>
+<script src="js/main.js"></script>
+</body>
+</html>
