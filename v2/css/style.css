@@ -18,9 +18,10 @@
   --white:#f6f3ee;
   --max:1920px;
   --ease:cubic-bezier(.22,.61,.36,1);
-  --font-display:'Syne','Noto Sans TC',sans-serif; /* big hero titles */
-  --font-head:'Outfit','Noto Sans TC',sans-serif;  /* section titles */
-  --font-body:'Urbanist','Noto Sans TC',sans-serif;/* body text */
+  --font-display:'Syne','Noto Sans TC',sans-serif; /* hero / headings (Syne SemiBold) */
+  --font-head:'Syne','Noto Sans TC',sans-serif;    /* headings (Syne SemiBold) */
+  --font-body:'Outfit','Noto Sans TC',sans-serif;  /* body text (Outfit) */
+  --font-ui:'Urbanist','Noto Sans TC',sans-serif;  /* menu + footer (Urbanist ExtraLight) */
 }
 
 *{box-sizing:border-box;margin:0;padding:0;}
@@ -36,6 +37,16 @@ body{
 img{max-width:100%;display:block;}
 a{color:inherit;text-decoration:none;}
 .container{max-width:var(--max);margin:0 auto;padding:0 24px;}
+/* The logo PNG has ~35px transparent left padding, so the visible "JOY" sits
+   35px inside the container edge. Keep the header (.nav) at its natural padding
+   but shift all OTHER content right 35px so it lines up under the visible logo. */
+.container:not(.nav){padding-left:calc(24px + 35px);padding-right:calc(24px + 35px);}
+/* header: keep logo at natural 24px left, but match the content's 59px on the right (EN aligns) */
+.container.nav{padding-right:calc(24px + 35px);}
+@media(max-width:560px){
+  .container:not(.nav){padding-left:24px;padding-right:24px;}
+  .container.nav{padding-right:24px;}
+}
 
 /* ---------- Headings ---------- */
 h1,h2,h3{font-family:var(--font-head);font-weight:600;letter-spacing:.02em;}
@@ -44,7 +55,7 @@ h1,h2,h3{font-family:var(--font-head);font-weight:600;letter-spacing:.02em;}
   text-align:center;font-size:1.6rem;font-weight:600;
   letter-spacing:.18em;text-transform:uppercase;margin-bottom:18px;
 }
-.display{font-family:var(--font-display);font-size:2.6rem;font-weight:700;letter-spacing:.02em;}
+.display{font-family:var(--font-display);font-size:2.6rem;font-weight:600;letter-spacing:.02em;}
 /* "Get In Touch with [JOY]" title — logo recoloured via CSS mask */
 .gt-title{font-family:var(--font-head);text-align:center;font-size:1.7rem;font-weight:600;
   letter-spacing:.05em;display:flex;align-items:center;justify-content:center;gap:18px;flex-wrap:wrap;}
@@ -74,7 +85,7 @@ h1,h2,h3{font-family:var(--font-head);font-weight:600;letter-spacing:.02em;}
 .logo img{height:192px;width:auto;position:relative;z-index:1;}
 .nav-links{display:flex;align-items:center;gap:38px;list-style:none;margin-left:auto;} /* push menu right */
 .nav-links a{
-  color:#fff;font-size:.98rem;letter-spacing:.06em;
+  color:#fff;font-family:var(--font-ui);font-weight:200;font-size:1rem;letter-spacing:.06em;
   padding-bottom:4px;position:relative;opacity:1;transition:opacity .25s;
 }
 .nav-links a:hover{opacity:.7;}                    /* same hover as 繁/EN */
@@ -82,7 +93,7 @@ h1,h2,h3{font-family:var(--font-head);font-weight:600;letter-spacing:.02em;}
 .lang{display:flex;gap:16px;align-items:center;}
 .lang button{
   background:none;border:none;color:#fff;cursor:pointer;
-  font-family:inherit;font-size:.95rem;opacity:1;transition:opacity .2s;
+  font-family:var(--font-ui);font-weight:200;font-size:.95rem;opacity:1;transition:opacity .2s;
 }
 .lang button:hover{opacity:.75;}
 .lang button.active{font-weight:700;}
@@ -118,7 +129,7 @@ h1,h2,h3{font-family:var(--font-head);font-weight:600;letter-spacing:.02em;}
 /* =========================================================
    HERO  (Home slider + page heroes)
    ========================================================= */
-.hero{position:relative;height:60vh;min-height:420px;overflow:hidden;}
+.hero{position:relative;width:100%;aspect-ratio:16/9;max-height:88vh;min-height:460px;overflow:hidden;}
 .hero .slide{
   position:absolute;inset:0;opacity:0;transition:opacity 1s var(--ease);
 }
@@ -136,12 +147,12 @@ h1,h2,h3{font-family:var(--font-head);font-weight:600;letter-spacing:.02em;}
 .hero-overlay{position:absolute;inset:0;z-index:4;display:flex;flex-direction:column;
   justify-content:flex-end;text-align:left;color:#fff;pointer-events:none;padding-bottom:64px;}
 .hero-overlay .container{width:100%;}
-.hero-overlay h1{font-family:var(--font-display);font-size:3rem;font-weight:700;letter-spacing:.04em;
+.hero-overlay h1{font-family:var(--font-display);font-size:3rem;font-weight:600;letter-spacing:.04em;
   text-shadow:0 2px 22px rgba(0,0,0,.4);}
 .hero-overlay p{font-size:1.15rem;margin-top:12px;letter-spacing:.08em;text-shadow:0 2px 14px rgba(0,0,0,.4);}
 
-/* page hero (Portfolio child / About) */
-.page-hero{height:46vh;min-height:340px;}
+/* page hero (Portfolio / Project / About) — same 16:9 ratio as the home hero */
+.page-hero{width:100%;aspect-ratio:16/9;max-height:88vh;min-height:460px;position:relative;overflow:hidden;}
 .page-hero-title{
   text-align:center;color:#fff;display:flex;align-items:center;
   justify-content:center;height:100%;
@@ -223,7 +234,8 @@ section{padding:64px 0;}
 /* =========================================================
    FOOTER
    ========================================================= */
-.site-footer{background:var(--dark);color:#e9e4dc;text-align:center;padding:46px 0 40px;}
+.site-footer{background:var(--dark);color:#e9e4dc;text-align:center;padding:46px 0 40px;
+  font-family:var(--font-ui);font-weight:200;}
 .site-footer .logo{justify-content:center;margin-left:0;margin-bottom:20px;}
 /* footer logo (5x); negative margins keep the footer layout constant */
 .site-footer .logo img{height:370px;margin:-148px 0;}
@@ -255,7 +267,7 @@ section{padding:64px 0;}
    LIGHTBOX
    ========================================================= */
 .lightbox{
-  position:fixed;inset:0;z-index:100;background:rgba(20,18,16,.5);
+  position:fixed;inset:0;z-index:100;background:rgba(20,18,16,.3);
   display:none;align-items:center;justify-content:center;padding:5vw;
 }
 .lightbox.open{display:flex;}
